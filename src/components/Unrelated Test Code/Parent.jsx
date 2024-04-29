@@ -1,8 +1,7 @@
 import { ChildComponent } from "./Child"
 import "./style.scss"
 import { useState } from "react";
-import { Button, Flex, Dropdown, Space } from "antd";
-import { DownOutlined } from '@ant-design/icons';
+import { Button, Flex } from "antd";
 
 function ParentComponent() {
     const [text, setText] = useState("Empty");
