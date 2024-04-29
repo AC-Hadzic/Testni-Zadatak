@@ -1,0 +1,22 @@
+.Parent {
+    width: 800px;
+    height: 800px;
+    background-color: yellow;
+    color: black;
+    font-size: 2rem;
+}
+
+.Parent > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.Child {
+    margin-top: 50px;
+    width: 500px;
+    height: 500px;
+    background-color: lightblue;
+    color: black;
+    font-size: 1.5rem;
+}
