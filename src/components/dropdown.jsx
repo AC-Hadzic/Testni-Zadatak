@@ -1,6 +1,6 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Space, Typography } from 'antd';
+import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
 import { useState } from 'react';
 
 function DropdownComponent ({keyToTable, dataToDropdown}) {
@@ -24,22 +24,36 @@ function DropdownComponent ({keyToTable, dataToDropdown}) {
     }
 
     return (
-        <Dropdown
-            menu={{
-            items,
-            selectable: true,
-            defaultSelectedKeys: ['3'],
-            onClick: selectHandler
+        <ConfigProvider
+            theme={{
+                components: {
+                Dropdown: {
+                    controlItemBgHover: "rgb(196, 227, 238)",
+                    controlItemBgActive: "rgb(196, 227, 238)",
+                    borderRadiusLG: 15,
+                    borderRadiusSM: 15,
+                    paddingBlock: 10
+                },
+                },
             }}
         >
-            
-            <Typography.Link>
-                <Space>
-                    {selected}
-                    <DownOutlined />
-                </Space>
-            </Typography.Link>
-        </Dropdown>
+            <Dropdown
+                menu={{
+                items,
+                selectable: true,
+                defaultSelectedKeys: ['3'],
+                onClick: selectHandler
+                }}
+            >
+                <Typography.Link>
+                    <Space>
+                        {selected}
+                        <DownOutlined />
+                    </Space>
+                </Typography.Link>
+            </Dropdown>
+        </ConfigProvider>
+        
     )
 }
   

@@ -1,0 +1,154 @@
+[
+  {
+    "id": 0,
+    "environment": "Production",
+    "environments": [
+      {
+        "id": 0,
+        "application_id": "S6Qc7FVTx5G9dZTTu83Rj0OE",
+        "name": "Production Server 1",
+        "description": "text",
+        "date_created": "2024-05-05T12:00:00Z",
+        "status": 0,
+        "admin": "Zoran",
+        "ip": "192.168.1.1"
+      },
+      {
+        "id": 1,
+        "application_id": "pD49vAbIYtTP4oxWka77Cbdj",
+        "name": "Production Server 2",
+        "description": "some text",
+        "date_created": "2023-02-05T10:00:00Z",
+        "status": 1,
+        "admin": "Matej",
+        "ip": "192.43.76.1"
+      },
+      {
+        "id": 2,
+        "application_id": "CiJh3tZfPMvVO2K6VFHcDk4V",
+        "name": "Production Server 3",
+        "description": "some filthy text",
+        "date_created": "2020-01-01T08:00:00Z",
+        "status": 1,
+        "admin": "Nixxi",
+        "ip": "168.1.15.1"
+      }
+    ]
+  },
+    {
+      "id": 1,
+      "environment": "Development",
+      "environments": [
+        {
+          "id": 0,
+          "application_id": "q2Tj3vsU00YUaV7UKm7b99jV",
+          "name": "Development Server 1",
+          "description": "some text",
+          "date_created": "2022-07-01T12:00:00Z",
+          "status": 1,
+          "admin": "Admin123",
+          "ip": "43.112.10.71"
+        },
+        {
+          "id": 1,
+          "application_id": "N9XBmtzUd2lfkD0l0BwbkuPf",
+          "name": "Development Server 2",
+          "description": "some other text",
+          "date_created": "2024-02-01T07:00:00Z",
+          "status": 1,
+          "admin": "XxAdminxX",
+          "ip": "76.168.19.81"
+        },
+        {
+          "id": 2,
+          "application_id": "Yw3JCvfmKhT7F6oQIdtlnlxW",
+          "name": "Development Server 3",
+          "description": "some more text",
+          "date_created": "2023-12-10T12:30:00Z",
+          "status": 0,
+          "admin": "Maro",
+          "ip": "23.57.25.1"
+        },
+        {
+          "id": 3,
+          "application_id": "36B1GYrNJudAFz7oqba9UKv1",
+          "name": "Development Server 4",
+          "description": "EVEN SOEM MOAR TEXT",
+          "date_created": "2024-03-05T14:30:00Z",
+          "status": 1,
+          "admin": "Oliver",
+          "ip": "176.43.57.1"
+        },
+        {
+          "id": 4,
+          "application_id": "m5T82kBSZ8DISP25oO5qTptG",
+          "name": "Development Server 5",
+          "description": "EVEN SOEM TEXT",
+          "date_created": "2024-02-25T09:00:00Z",
+          "status": 1,
+          "admin": "Lolla",
+          "ip": "56.79.18.2"
+        },
+        {
+          "id": 5,
+          "application_id": "sLgur9w3zHGt3AQq3DaNEqhH",
+          "name": "Development Server 6",
+          "description": "SOEM MOAR TEXT",
+          "date_created": "2023-12-05T12:00:00Z",
+          "status": 0,
+          "admin": "Vlado",
+          "ip": "47.8.0.5"
+        },
+        {
+          "id": 6,
+          "application_id": "aTcy7ospvfHs7n019O3S98yC",
+          "name": "Development Server 7",
+          "description": "MOAR TEXT",
+          "date_created": "2020-11-27T10:00:00Z",
+          "status": 0,
+          "admin": "Warmer",
+          "ip": "10.168.17.10"
+        },
+        {
+          "id": 7,
+          "application_id": "21PX76rEdLjGsuIvuKhiD2Im",
+          "name": "Development Server 8",
+          "description": "EVEN SOEM MOAR TEXT",
+          "date_created": "2024-01-01T04:30:00Z",
+          "status": 1,
+          "admin": "AaAaa",
+          "ip": "92.16.1.10"
+        },
+        {
+          "id": 8,
+          "application_id": "Y8JVk18k4ds7Ox1vvYgOB9BP",
+          "name": "Development Server 9",
+          "description": "EVEN MOAR",
+          "date_created": "2023-04-12T12:00:00Z",
+          "status": 1,
+          "admin": "WhhdXdfas",
+          "ip": "89.66.1.12"
+        },
+        {
+          "id": 9,
+          "application_id": "6OLNzU3PTaP86jNNC2q0srTw",
+          "name": "Development Server 10",
+          "description": "EVEN SOEM MOAR",
+          "date_created": "2024-03-27T10:30:00Z",
+          "status": 0,
+          "admin": "Opper",
+          "ip": "12.45.1.10"
+        },
+        {
+          "id": 10,
+          "application_id": "rEr8CsfcOn3yagpHMeh77VDO",
+          "name": "Development Server 11",
+          "description": "TEXT",
+          "date_created": "2021-03-03T12:00:00Z",
+          "status": 1,
+          "admin": "Sae",
+          "ip": "112.1.1.57"
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,19 @@
+.ID_render_status, .active_status, .inactive_status, .modal span {
+    font-weight: bold;
+}
+
+.modal {
+    display: flex;
+    justify-content: space-around;
+    line-height: 1.5rem;
+
+    div > div {
+        margin-bottom: 30px;
+    }
+}
+
+@media (width <= 480px) {
+    .modal {
+        justify-content: space-between;
+    }
+}
