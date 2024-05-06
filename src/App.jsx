@@ -11,6 +11,7 @@ function App() {
                 <Route path='/' element={<AppWrapper />}>
                     <Route index element={<HomePage />} />
                     <Route path='/:server/:id' element={<ServerDetails />} />
+                    <Route path='*' element={<NoMatch />} />
                 </Route>
                 <Route path='*' element={<NoMatch />} />
             </Routes>
