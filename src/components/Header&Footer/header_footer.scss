@@ -1,0 +1,37 @@
+.header {
+    height: 20vh;
+    min-height: 100px;
+
+    .banner {
+        height: 65%;
+        background-color: lightcoral;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav {
+        min-height: 35%;
+        background-color: lightgreen;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }    
+}
+
+.footer {
+    background-color: lightgreen;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+

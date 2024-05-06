@@ -1,0 +1,25 @@
+.no_match_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p:first-of-type {
+        font-size: 2rem;
+    }
+
+    .button {
+        margin: 30px;
+    }
+}
+
+@media (width <= 480px) {
+    .no_match_container {
+        text-align: center;
+        padding-inline: 10px;
+
+        p:first-of-type {
+        font-size: 1.5rem;
+        }
+    }
+}    

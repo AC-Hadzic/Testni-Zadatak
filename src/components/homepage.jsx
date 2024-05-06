@@ -1,5 +1,5 @@
-import DropdownComponent from './dropdown'
-import TableComponent from './table'
+import DropdownComponent from './PageComponents/dropdown';
+import TableComponent from './PageComponents/table';
 import { useState, useEffect } from 'react'
 import "./homepage.scss"
 

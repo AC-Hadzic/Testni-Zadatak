@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import NoMatch from "./noMatch";
+import NoMatch from "../PageComponents/noMatch";
 import "./serverDetails.scss";
 
 function ServerDetails() {
