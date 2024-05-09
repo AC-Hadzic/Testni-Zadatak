@@ -4,7 +4,7 @@ import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
 import { DataForContext } from '../../pages/Home/Home';
 
 function DropdownComponent() {
-    const [selected, setSelected] = useState("Selected:");
+    const [selected, setSelected] = useState("");
     const { data, setEnvID } = useContext(DataForContext);
 
     // Novi Array environmnenta za Dropdown s podacima iz Contexta, dodavanje key zbog potrebe .map funkcije. Provjera postojanja podataka.
