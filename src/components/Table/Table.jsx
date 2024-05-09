@@ -4,38 +4,38 @@ import { Link } from 'react-router-dom';
 import "../../assets/CSS/table.scss";
 import { ModalComponent } from '../Modal/Modal';
 import { DataForContext } from '../../pages/Home/Home';
-
-// Kolumne tablice
-const columns = [
-    {
-        title: 'ID',
-        dataIndex: 'id',
-        sorter: {compare: (a, b) => a.id - b.id},
-        render: (text, record) => <Link to={"/" + record.serv_env + "/" + record.id}><span className='id-render-status'>{text}</span></Link>,
-        align: "center"
-    },
-    {
-        title: 'Application ID',
-        dataIndex: 'application_id',
-        hidden: window.innerWidth >= 1080 ? false : true
-    },
-    {
-        title: 'Server Name',
-        dataIndex: 'name'
-    },
-    {
-        title: 'Status',
-        dataIndex: 'status',
-        render: (text, record) => <>{record.status == 0 ? (<span className='inactive-status'> Inactive </span>) : (<span className='active-status'> Active </span>)}</>,
-        align: "center"
-    }
-];
+import { statusIndicator } from '../../utils/Utils';
 
 function TableComponent() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeRecord, setActiveRecord] = useState(null);  
-
     const {data, envID} = useContext(DataForContext);
+    
+    // Kolumne tablice
+    const columns = [
+        {
+            title: 'ID',
+            dataIndex: 'id',
+            sorter: {compare: (a, b) => a.id - b.id},
+            render: (text, record) => <Link to={"/" + record.serv_env + "/" + record.id}><span className='id-render-status'>{text}</span></Link>,
+            align: "center"
+        },
+        {
+            title: 'Application ID',
+            dataIndex: 'application_id',
+            hidden: window.innerWidth >= 1080 ? false : true
+        },
+        {
+            title: 'Server Name',
+            dataIndex: 'name'
+        },
+        {
+            title: 'Status',
+            dataIndex: 'status',
+            render: (text, record) => <>{statusIndicator(record?.status)}</>,
+            align: "center"
+        }
+    ];
 
     const showModal = () => {
         setIsModalOpen(true);

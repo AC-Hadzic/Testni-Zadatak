@@ -63,7 +63,7 @@ function ModalComponent({isModalOpen, handleCancel, handleOk, activeRecord}) {
                         </div>
 
                         <div>
-                            <span>Server status: </span> <br /> {statusIndicator(activeRecord?.status)}
+                            <span>Server status: </span> <br /> {statusIndicator(activeRecord?.status, "small")}
                         </div>
                     </div>                    
                 </div>
