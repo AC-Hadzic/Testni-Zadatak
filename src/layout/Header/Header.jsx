@@ -1,6 +1,6 @@
-import "./header_footer.scss"
+import "../../assets/CSS/header.scss";
 
-function HeaderComponent() {
+function Header() {
     return (
         <div className='header'>
             <div className='banner'>
@@ -13,4 +13,4 @@ function HeaderComponent() {
     )
 }
 
-export default HeaderComponent;
+export { Header };

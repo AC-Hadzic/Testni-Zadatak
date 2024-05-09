@@ -1,42 +1,23 @@
-import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import NoMatch from "../PageComponents/noMatch";
-import "./serverDetails.scss";
+import { NoMatch } from "../NoMatch/NoMatch";
+import "../../assets/CSS/server-details.scss";
+import { useFetch } from "../../hooks/useFetch";
 
 function ServerDetails() {
-    const [data, setData] = useState([]);
     const URL = "https://raw.githubusercontent.com/AC-Hadzic/JSON-Fetch-Practice/main/data.json";
+    const data = useFetch(URL); // Fetch podataka sa URL
     let { server } = useParams();
     let { id } = useParams();
-
-    // Fetch podataka sa URL
-    useEffect(() => {
-        const fetchData = async() => {
-            try {
-                const response = await fetch(URL);
-                const result = await response.json();
-                // console.log("JSON received from Fetch:", result);
-                setData(result);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-
-        fetchData();
-        // console.log("Fetch Effect", data);
-    }, []);
-
-        // console.log("Fetch Effect after", data);
 
     return (
         <>
             {data[server]?.environment && data[server]?.environments[id]?.name ? (
                 <>
-                    <div className="server_details">
+                    <div className="server-details">
                         <h1> Server details </h1>
                         <p> Below you can find a detailed list of informations regarding selected server. </p>
 
-                        <div className="details_container">
+                        <div className="details-container">
                             <div>
                                 <div>
                                     <span> Environment type: </span> <br /> {data[server].environment}
@@ -73,12 +54,12 @@ function ServerDetails() {
                                 </div>
 
                                 <div>
-                                    <span>Server status: </span> <br /> {data[server].environments[id].status == 0 ? (<span className='inactive_status_short'> Inactive </span>) : (<span className='active_status_short'> Active </span>)}
+                                    <span>Server status: </span> <br /> {data[server].environments[id].status == 0 ? (<span className='inactive-status-short'> Inactive </span>) : (<span className='active-status-short'> Active </span>)}
                                 </div>                          
                             </div>                            
                         </div>
 
-                        <div className="button_container">
+                        <div className="button-container">
                             <Link to="/"><button className="button"> Go to homepage </button></Link>   
                         </div>
                     </div>
@@ -91,4 +72,4 @@ function ServerDetails() {
     );
 }
 
-export default ServerDetails;
+export { ServerDetails };

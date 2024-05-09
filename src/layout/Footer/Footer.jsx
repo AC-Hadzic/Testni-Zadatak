@@ -1,6 +1,6 @@
-import "./header_footer.scss"
+import "../../assets/CSS/footer.scss";
 
-function FooterComponent() {
+function Footer() {
     return (
         <div className="footer">
             Footer Location - place for... footer stuff?
@@ -8,4 +8,4 @@ function FooterComponent() {
     )
 }
 
-export default FooterComponent;
+export { Footer };
