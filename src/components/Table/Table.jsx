@@ -70,7 +70,7 @@ function TableComponent() {
     // stat_indicator će dodati class na element te biti prozvan u Modalu
 
     return (
-        <>
+        <div className='table'>
             <ConfigProvider
                 theme={{
                     components: {
@@ -103,8 +103,8 @@ function TableComponent() {
                     handleOk={handleOk}
                     activeRecord={activeRecord}
                 />
-            </ConfigProvider>
-        </>
+            </ConfigProvider>                
+        </div>
     )
 }
 

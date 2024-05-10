@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
 import { DataForContext } from '../../pages/Home/Home';
+import "./../../assets/CSS/dropdown.scss";
 
 function DropdownComponent() {
     const [selected, setSelected] = useState("");
@@ -39,35 +40,38 @@ function DropdownComponent() {
     }
 
     return (
-        <ConfigProvider
-            theme={{
-                components: {
-                    Dropdown: {
-                        controlItemBgHover: "rgb(196, 227, 238)",
-                        controlItemBgActive: "rgb(196, 227, 238)",
-                        borderRadiusLG: 15,
-                        borderRadiusSM: 15,
-                        paddingBlock: 10
-                    },
-                },
-            }}
-        >
-            <Dropdown
-                menu={{
-                    items,
-                    selectable: true,
-                    defaultSelectedKeys: ['3'],
-                    onClick: handleSelected
-                }}
-            >
-                <Typography.Link>
-                    <Space>
-                        {selected}
-                        <DownOutlined />
-                    </Space>
-                </Typography.Link>
-            </Dropdown>
-        </ConfigProvider>
+        <div className='dropdown'>
+            <div className='center-dropdown'>
+                <ConfigProvider
+                    theme={{
+                        components: {
+                            Dropdown: {
+                                controlItemBgHover: "rgb(196, 227, 238)",
+                                controlItemBgActive: "rgb(196, 227, 238)",
+                                borderRadiusLG: 15,
+                                borderRadiusSM: 15,
+                                paddingBlock: 10
+                            },
+                        },
+                    }}
+                >
+                    <Dropdown
+                        menu={{
+                            items,
+                            selectable: true,
+                            onClick: handleSelected
+                        }}
+                    >
+                        <Typography.Link>
+                            <Space>
+                                {selected}
+                                <DownOutlined />
+                            </Space>
+                        </Typography.Link>
+                    </Dropdown>
+                </ConfigProvider>
+            </div>
+        </div>
     )
 }
 
