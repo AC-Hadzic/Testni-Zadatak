@@ -24,29 +24,30 @@ body {
     margin: 0;
 }
 
-.active_status {
+.active-status {
     background-color: rgb(40, 173, 84);
 }
 
-.inactive_status {
+.inactive-status {
     background-color: rgb(245, 78, 56);
 }
 
-.active_status, .inactive_status {
+.active-status, .inactive-status {
     color: white;
     border-radius: 50px;
     padding: 6px 8px 6px 8px;
+    font-weight: bold;
 }
 
-.active_status_short {
+.active-status-short {
     color: green;
 }
 
-.inactive_status_short {
+.inactive-status-short {
     color: red;
 }
 
-.active_status_short, .inactive_status_short {
+.active-status-short, .inactive-status-short {
     background-color: unset;
     border-radius: 0px;
     padding: 0px;

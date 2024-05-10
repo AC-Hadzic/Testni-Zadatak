@@ -1,4 +1,4 @@
-.no_match_container {
+.no-match-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
 }
 
 @media (width <= 480px) {
-    .no_match_container {
+    .no-match-container {
         text-align: center;
         padding-inline: 10px;
 

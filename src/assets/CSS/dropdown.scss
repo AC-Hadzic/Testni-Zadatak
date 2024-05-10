@@ -3,15 +3,15 @@
     justify-content: center;
 }
 
-.center_dropdown {
+.center-dropdown {
     background-color: white;
     border-radius: 50px;
     box-shadow: 0px 3px 8px 0px rgb(66, 66, 66);
     margin: 15px;
 
-    height: 50px;
+    height: 45px;
 
-    width: 25%;
+    width: 15%;
     min-width: 200px;
 
     display: flex;
@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.center_dropdown a {
+.center-dropdown a {
     color: black !important;
     font-weight: bold;
 }
