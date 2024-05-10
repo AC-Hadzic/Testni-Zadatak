@@ -1,6 +1,6 @@
 import "../../assets/CSS/header.scss";
 
-function Header() {
+function HeaderComponent() {
     return (
         <div className='header'>
             <div className='banner'>
@@ -13,4 +13,4 @@ function Header() {
     )
 }
 
-export { Header };
+export { HeaderComponent };

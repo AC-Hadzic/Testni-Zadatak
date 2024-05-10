@@ -1,19 +1,19 @@
 import { Outlet } from "react-router-dom";
 import "../../assets/CSS/app-wrapper.scss";
-import { Header } from "../Header/Header";
-import { Footer } from "../Footer/Footer";
+import { HeaderComponent } from "../Header/HeaderComponent";
+import { FooterComponent } from "../Footer/FooterComponent";
 
 function AppWrapper() {
     return (
         <>
             <div className='page-wrap'>
-                <Header />
+                <HeaderComponent />
                 <div className='content-container'>
                     <div className="content-wrap">
                         <Outlet />
                     </div>
                 </div>
-                <Footer />
+                <FooterComponent />
             </div>
         </>
       )

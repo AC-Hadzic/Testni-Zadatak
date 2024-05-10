@@ -7,8 +7,3 @@ export const statusIndicator = (data, type) => {
         </>
     )
 }
-
-// Handler funkcija za setEnvID
-export const handleSetState = (data, setState) => {
-    setState(data);
-};

@@ -1,6 +1,6 @@
 import "../../assets/CSS/footer.scss";
 
-function Footer() {
+function FooterComponent() {
     return (
         <div className="footer">
             Footer Location - place for... footer stuff?
@@ -8,4 +8,4 @@ function Footer() {
     )
 }
 
-export { Footer };
+export { FooterComponent };

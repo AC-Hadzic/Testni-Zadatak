@@ -2,21 +2,21 @@ import React, { useContext, useState } from 'react';
 import { Table, ConfigProvider } from 'antd';
 import { Link } from 'react-router-dom';
 import "../../assets/CSS/table.scss";
-import { ModalComponent } from '../Modal/Modal';
-import { DataForContext } from '../../pages/Home/Home';
+import { DataForContext } from '../../pages/HomePage/HomePage';
 import { statusIndicator } from '../../utils/Utils';
+import { ModalDetails } from '../Modal/ModalDetails';
 
 function TableComponent() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [activeRecord, setActiveRecord] = useState(null);  
-    const {data, envID} = useContext(DataForContext);
-    
+    const [activeRecord, setActiveRecord] = useState(null);
+    const { data, envID } = useContext(DataForContext);
+
     // Kolumne tablice
     const columns = [
         {
             title: 'ID',
             dataIndex: 'id',
-            sorter: {compare: (a, b) => a.id - b.id},
+            sorter: { compare: (a, b) => a.id - b.id },
             render: (text, record) => <Link to={"/" + record.serv_env + "/" + record.id}><span className='id-render-status'>{text}</span></Link>,
             align: "center"
         },
@@ -40,18 +40,10 @@ function TableComponent() {
     const showModal = () => {
         setIsModalOpen(true);
     };
-    
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
 
     // Props šalje data za novi Array kojim se puni tablica, dodavanje key varijable zbog potrebe .map funkcije te serv_env kao identifikator environmenta radi generiranja Link-a. Provjera postojanja svih podataka.
     const newArray = envID && data &&
-        data[envID].environments.map( item => ({
+        data[envID].environments.map(item => ({
             id: item.id,
             application_id: item.application_id,
             name: item.name,
@@ -63,11 +55,6 @@ function TableComponent() {
             key: item.id.toString(), // Dodan key radi .map funkcije
             serv_env: envID // keyFromDropdown bude prosljeđen u serverDetails radi lociranja na kojem se environmentu nalazi server 
         }))
-
-    
-    // const data = keyFromDropdown && dataToTable && dataToTable[keyFromDropdown].environments;
-
-    // stat_indicator će dodati class na element te biti prozvan u Modalu
 
     return (
         <div className='table'>
@@ -83,8 +70,8 @@ function TableComponent() {
                     }
                 }}
             >
-                <Table 
-                    columns={columns} 
+                <Table
+                    columns={columns}
                     dataSource={newArray}
                     // rowKey={(record) => record.id}
                     onRow={(record) => {
@@ -95,15 +82,14 @@ function TableComponent() {
                             }
                         };
                     }}
-                />                
-            
-                <ModalComponent
+                />
+
+                <ModalDetails
                     isModalOpen={isModalOpen}
-                    handleCancel={handleCancel} 
-                    handleOk={handleOk}
+                    setIsModalOpen={setIsModalOpen}
                     activeRecord={activeRecord}
                 />
-            </ConfigProvider>                
+            </ConfigProvider>
         </div>
     )
 }

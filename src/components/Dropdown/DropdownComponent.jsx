@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
-import { DataForContext } from '../../pages/Home/Home';
+import { DataForContext } from '../../pages/HomePage/HomePage';
 import "./../../assets/CSS/dropdown.scss";
 
 function DropdownComponent() {
@@ -22,8 +22,8 @@ function DropdownComponent() {
     // useEffect poziva update funkciju i postavlja početnu tablicu na Production Environment
     useEffect(() => {
         data.length > 0 &&
-        updateSelected(items[0].key, items[0].label);
-        // console.log("useEffect called");
+            updateSelected(items[0].key, items[0].label);
+            // console.log("useEffect called");
     }, [data])
 
     // Handle funkcija za onClick koja poziva update funkciju

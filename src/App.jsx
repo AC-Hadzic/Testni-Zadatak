@@ -1,14 +1,14 @@
 import { ServerDetails } from "./pages/ServerDetails/ServerDetails";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home/Home";
 import { NoMatch } from "./pages/NoMatch/NoMatch";
 import { AppWrapper } from "./layout/AppWrapper/AppWrapper";
+import { HomePage } from "./pages/HomePage/HomePage";
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<AppWrapper />}>
-                <Route index element={<Home />} />
+                <Route index element={<HomePage />} />
                 <Route path="/:server/:id" element={
                     <ServerDetails
                         title="Server details"

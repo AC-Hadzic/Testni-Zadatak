@@ -1,25 +1,28 @@
-import { DropdownComponent } from "../../components/Dropdown/Dropdown";
-import { TableComponent } from "../../components/Table/Table";
+import { DropdownComponent } from "../../components/Dropdown/DropdownComponent";
+import { TableComponent } from "../../components/Table/TableComponent";
 import React, { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
-import { handleSetState } from "../../utils/Utils";
 
 export const DataForContext = React.createContext();
 
-function Home() {
+function HomePage() {
     const [envID, setEnvID] = useState(0);
-    const URL =
-        "https://raw.githubusercontent.com/AC-Hadzic/JSON-Fetch-Practice/main/data.json";
+    const URL = import.meta.env.VITE_API_URL;
     const DATA = useFetch(URL); // Fetch podataka sa URL
+
+    // Handler funkcija za setEnvID
+    const handleSetState = (data) => {
+        setEnvID(data);
+    };
 
     return (
         <>
             {/* Stvoren Context sa values koje su dostupne Table i Dropdown komponenti */}
             <DataForContext.Provider
                 value={{
-                data: DATA,
-                setEnvID: (data) => {handleSetState(data, setEnvID);},
-                envID: envID,
+                    data: DATA,
+                    setEnvID: handleSetState,
+                    envID: envID,
                 }}
             >
                 <DropdownComponent />
@@ -29,4 +32,4 @@ function Home() {
     );
 }
 
-export { Home };
+export { HomePage };
