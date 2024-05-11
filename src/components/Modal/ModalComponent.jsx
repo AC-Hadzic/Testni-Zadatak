@@ -3,7 +3,15 @@ import "../../assets/CSS/modal.scss";
 import { statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
 
-function ModalComponent({ isModalOpen, handleCancel, handleOk, activeRecord, text }) {
+function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text }) {
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <ConfigProvider
             theme={{
@@ -21,7 +29,7 @@ function ModalComponent({ isModalOpen, handleCancel, handleOk, activeRecord, tex
             }}
         >
             <Modal
-                title="Server details"
+                title={title}
                 open={isModalOpen}
                 onCancel={handleCancel}
                 footer={[

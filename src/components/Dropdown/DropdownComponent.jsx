@@ -1,23 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { DownOutlined } from '@ant-design/icons';
-import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
 import { DataForContext } from '../../pages/HomePage/HomePage';
 import "./../../assets/CSS/dropdown.scss";
+import { DropdownRender } from './DropdownRender';
+import { dropdownDataParser } from '../../utils/Utils';
 
 function DropdownComponent() {
     const [selected, setSelected] = useState("");
     const { data, setEnvID } = useContext(DataForContext);
 
-    // Novi Array environmnenta za Dropdown s podacima iz Contexta, dodavanje key zbog potrebe .map funkcije. Provjera postojanja podataka.
-    const items = data ?
-        data.map(item => ({
-            key: item.id.toString(),
-            label: item.environment,
-        })) :
-        [{
-            key: "0",
-            label: "Loading data..."
-        }]
+    // Funkcija vraća Dropdownu iskoristiv array od data
+    const items = dropdownDataParser(data)
 
     // useEffect poziva update funkciju i postavlja početnu tablicu na Production Environment
     useEffect(() => {
@@ -28,50 +20,27 @@ function DropdownComponent() {
 
     // Handle funkcija za onClick koja poziva update funkciju
     const handleSelected = (item) => {
-        updateSelected(item.key, items[item.key].label)
+        updateSelected(item.key, items[item.key].label);
         // console.log("handler called");
-    }
+    };
 
     // Funckija koja postavlja Environment Key (potrebno za Table) i label (potrebno za prikaz u Dropdown)
     const updateSelected = (key, label) => {
-        setSelected("Selected: " + label)
+        setSelected("Selected: " + label);
         setEnvID(key);
         // console.log("setter called");
-    }
+    };
 
     return (
-        <div className='dropdown'>
-            <div className='center-dropdown'>
-                <ConfigProvider
-                    theme={{
-                        components: {
-                            Dropdown: {
-                                controlItemBgHover: "rgb(196, 227, 238)",
-                                controlItemBgActive: "rgb(196, 227, 238)",
-                                borderRadiusLG: 15,
-                                borderRadiusSM: 15,
-                                paddingBlock: 10
-                            },
-                        },
-                    }}
-                >
-                    <Dropdown
-                        menu={{
-                            items,
-                            selectable: true,
-                            onClick: handleSelected
-                        }}
-                    >
-                        <Typography.Link>
-                            <Space>
-                                {selected}
-                                <DownOutlined />
-                            </Space>
-                        </Typography.Link>
-                    </Dropdown>
-                </ConfigProvider>
-            </div>
-        </div>
+        <DropdownRender
+            menu={{
+                items,
+                selectable: true,
+                onClick: handleSelected,
+                defaultSelectedKeys: "0",
+            }}
+            selected={selected}
+        />
     )
 }
 
