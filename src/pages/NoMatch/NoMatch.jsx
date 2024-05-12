@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import "../../assets/CSS/global.css";
 import "../../assets/CSS/no-match.scss";
+import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 
 function NoMatch() {
     return (
@@ -9,11 +9,7 @@ function NoMatch() {
                 <p>The selected path is non-existent!</p>
                 <p>Click the button below to return to the homepage.</p>
                 
-                <Link to="/">
-                    <button className="button">
-                        Homepage
-                    </button>
-                </Link>
+                <ButtonComponent to="/" text ="Go back to home page" />
             </div>
         </>
     )

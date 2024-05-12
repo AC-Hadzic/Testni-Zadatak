@@ -2,6 +2,7 @@ import { Modal, Button, ConfigProvider } from "antd";
 import "../../assets/CSS/modal.scss";
 import { statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
+import { ButtonComponent } from "../ButtonComponent/ButtonComponent";
 
 function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text }) {
     const handleOk = () => {
@@ -33,9 +34,7 @@ function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text
                 open={isModalOpen}
                 onCancel={handleCancel}
                 footer={[
-                    <Button key="submit" type="primary" onClick={handleOk}>
-                        Close window
-                    </Button>
+                    <ButtonComponent key="ok" text="Close window" onClick={handleOk}/>
                 ]}>
 
                 <p> {text} </p>

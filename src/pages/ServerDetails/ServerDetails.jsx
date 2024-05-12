@@ -1,9 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { NoMatch } from "../NoMatch/NoMatch";
 import "../../assets/CSS/server-details.scss";
 import { useFetch } from "../../hooks/useFetch";
 import { statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
+import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 
 function ServerDetails({ title, text }) {
     const URL = import.meta.env.VITE_API_URL;
@@ -35,13 +36,7 @@ function ServerDetails({ title, text }) {
                         </div>
                     </div>
 
-                    <div className="button-container">
-                        <Link to="/">
-                            <button className="button">
-                                Go to homepage
-                            </button>
-                        </Link>
-                    </div>
+                    <ButtonComponent to="/" text="Go to home page" type="primary" size="large"/>
                 </div>
                 ) : (
                     <NoMatch />
