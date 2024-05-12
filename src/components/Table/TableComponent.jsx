@@ -12,7 +12,7 @@ function TableComponent() {
     const { data, envID } = useContext(DataForContext);
 
     // Funkcija će data provesti kroz .map i vratiti iskoristivi array za Table
-    const newArray = tableDataParser(data[envID]?.environments, envID);
+    const DATA = tableDataParser(data[envID]?.environments, envID);
 
     // Kolumne tablice
     const columns = [
@@ -53,7 +53,7 @@ function TableComponent() {
         <>
             <TableRender
                 columns={columns}
-                dataSource={newArray}
+                dataSource={DATA}
                 // rowKey={(record) => record.id}
                 onRow={(record) => {
                     return {

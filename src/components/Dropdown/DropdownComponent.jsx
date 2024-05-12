@@ -5,7 +5,7 @@ import { DropdownRender } from './DropdownRender';
 import { dropdownDataParser } from '../../utils/Utils';
 
 function DropdownComponent() {
-    const [selected, setSelected] = useState("");
+    const [selectedEnv, setSelectedEnv] = useState("");
     const { data, setEnvID } = useContext(DataForContext);
 
     // Funkcija vraća Dropdownu iskoristiv array od data
@@ -14,19 +14,19 @@ function DropdownComponent() {
     // useEffect poziva update funkciju i postavlja početnu tablicu na Production Environment
     useEffect(() => {
         data.length > 0 &&
-            updateSelected(items[0].key, items[0].label);
+            updateSelectedEnv(items[0].key, items[0].label);
             // console.log("useEffect called");
     }, [data])
 
     // Handle funkcija za onClick koja poziva update funkciju
-    const handleSelected = (item) => {
-        updateSelected(item.key, items[item.key].label);
+    const handleSelectedEnv = (item) => {
+        updateSelectedEnv(item.key, items[item.key].label);
         // console.log("handler called");
     };
 
     // Funckija koja postavlja Environment Key (potrebno za Table) i label (potrebno za prikaz u Dropdown)
-    const updateSelected = (key, label) => {
-        setSelected("Selected: " + label);
+    const updateSelectedEnv = (key, label) => {
+        setSelectedEnv("Selected: " + label);
         setEnvID(key);
         // console.log("setter called");
     };
@@ -36,10 +36,10 @@ function DropdownComponent() {
             menu={{
                 items,
                 selectable: true,
-                onClick: handleSelected,
+                onClick: handleSelectedEnv,
                 defaultSelectedKeys: "0",
             }}
-            selected={selected}
+            selectedEnv={selectedEnv}
         />
     )
 }

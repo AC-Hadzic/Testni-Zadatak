@@ -3,7 +3,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
 import "./../../assets/CSS/dropdown.scss";
 
-function DropdownRender({ menu, selected }) {
+function DropdownRender({ menu, selectedEnv }) {
     const { items, selectable, onClick, defaultSelectedKeys } = menu;
 
     return (
@@ -32,7 +32,7 @@ function DropdownRender({ menu, selected }) {
                     >
                         <Typography.Link>
                             <Space>
-                                {selected}
+                                {selectedEnv}
                                 <DownOutlined />
                             </Space>
                         </Typography.Link>
