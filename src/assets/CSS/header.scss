@@ -1,10 +1,12 @@
 .header {
     height: 20vh;
     min-height: 100px;
+    color: white;
 
     .banner {
         height: 65%;
-        background-color: lightcoral;
+
+        background: linear-gradient(90deg, #003366, #05478a);
 
         display: flex;
         justify-content: center;
@@ -13,11 +15,52 @@
 
     .nav {
         min-height: 35%;
-        background-color: lightgreen;
+        background-color: #05478a;
 
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items: center;
         text-align: center;
-    }    
+
+        font-size: 1.1rem;
+
+        div {
+            padding: 10px 20px;
+            margin-inline: 20px;
+            border-radius: 25px;
+        }
+
+        div:hover {
+            background-color: #1d70c4;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.1s linear all;
+        }
+
+        div:active {
+            background-color: #368adf;
+        }
+
+        div:not(:hover) {
+            transition: 0.1s linear all;
+        }
+    }  
+}
+
+@media (max-width: 720px) {
+    .header {
+        .nav {
+            justify-content: space-evenly;
+            font-size: 1.5rem;
+
+            span {
+                display: none;
+            }  
+            
+            div {
+                padding: 8px 12px;
+                margin-inline: 0;
+            }               
+        }
+    }
 }

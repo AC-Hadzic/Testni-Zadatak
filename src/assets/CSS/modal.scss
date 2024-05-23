@@ -1,19 +1,40 @@
-.modal span {
-    font-weight: bold;
-}
-
 .modal {
     display: flex;
-    justify-content: space-around;
-    line-height: 1.5rem;
+    flex-direction: column;
 
-    div > div {
-        margin-bottom: 30px;
+    span {
+        font-weight: bold;
+    }
+
+    .data-container {
+        display: flex;
+        justify-content: space-between;
+
+        div:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        div > div:first-of-type {
+            margin-top: 20px;
+        }
+    }
+
+    .separator {
+        background-color: rgb(211, 211, 211);
+        filter: blur(0.6px);
+
+        &.vertical {
+            width: 1px;
+        }
+
+        &.horizontal {
+            height: 1px;
+        }
     }
 }
 
-@media (width <= 480px) {
-    .modal {
-        justify-content: space-between;
+@media (max-width: 480px) {
+    .separator.vertical {
+        display: none;
     }
 }

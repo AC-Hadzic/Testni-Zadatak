@@ -1,12 +1,14 @@
 .footer {
-    background-color: lightgreen;
+    background-color: #0c539c;
+    color: white;
     height: 100px;
-
+    width: 100%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 
     position: absolute;
     bottom: 0;
-    width: 100%;
+    
 }

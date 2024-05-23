@@ -1,17 +1,24 @@
-import { Modal, Button, ConfigProvider } from "antd";
+import { Modal, ConfigProvider } from "antd";
 import "../../assets/CSS/modal.scss";
-import { statusIndicator } from "../../utils/Utils";
+import { dateParser, statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
-import { ButtonComponent } from "../ButtonComponent/ButtonComponent";
+import { useEffect } from "react";
 
 function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text }) {
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
+    const BlurWrapper = document.getElementById("page-wrap");
 
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+
+    useEffect(() => {
+        if (isModalOpen) {
+            BlurWrapper?.classList.add('blur-background');
+        }
+        else {
+            BlurWrapper?.classList.remove("blur-background");
+        }
+    }, [isModalOpen])
 
     return (
         <ConfigProvider
@@ -19,38 +26,44 @@ function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text
                 components: {
                     Modal: {
                         borderRadiusLG: 25,
-                    },
-                    Button: {
-                        borderRadius: 25,
-                        paddingBlock: 20,
-                        contentLineHeight: 0,
-                        contentFontSize: 15
+                        borderRadiusSM: 25,
+                        colorBgTextActive: "rgb(255, 170, 159)",
+                        colorBgTextHover: "rgb(245, 78, 56)",
+                        colorIcon: "rgb(245, 78, 56)",
+                        colorIconHover: "white",
+                        titleFontSize: 20
                     }
                 }
             }}
         >
             <Modal
-                title={title}
+                title= {<><i className="bi bi-server"></i> {title}</>}
                 open={isModalOpen}
                 onCancel={handleCancel}
-                footer={[
-                    <ButtonComponent key="ok" text="Close window" onClick={handleOk}/>
-                ]}>
-
-                <p> {text} </p>
+                footer={null}
+            >
+ 
                 <div className='modal'>
-                    <div>
-                        <DetailsComponent title="Server name:" data={activeRecord?.name} />
-                        <DetailsComponent title="Server created at:" data={activeRecord?.date_created} />
-                        <DetailsComponent title="Server managed by:" data={activeRecord?.admin} />
-                        <DetailsComponent title="Server description:" data={activeRecord?.description} />
+                    <div className="text-container">
+                        <p> {text} </p> 
                     </div>
+                    <div className="separator horizontal" />
+                    <div className="data-container">
+                            <div>
+                                <DetailsComponent title="Server name:" data={activeRecord?.name} />
+                                <DetailsComponent title="Server created at:" data={activeRecord?.date_created} />
+                                <DetailsComponent title="Server managed by:" data={activeRecord?.admin} />
+                                <DetailsComponent title="Server description:" data={activeRecord?.description} />
+                            </div>
 
-                    <div>
-                        <DetailsComponent title="Server ID:" data={activeRecord?.id} />
-                        <DetailsComponent title="Server App ID:" data={activeRecord?.application_id} />
-                        <DetailsComponent title="Server IP Adress:" data={activeRecord?.ip} />
-                        <DetailsComponent title="Server status:" data={statusIndicator(activeRecord?.status, "small")} />
+                            <div className="separator vertical" />
+
+                            <div>
+                                <DetailsComponent title="Server ID:" data={activeRecord?.id} />
+                                <DetailsComponent title="Server App ID:" data={activeRecord?.application_id} />
+                                <DetailsComponent title="Server IP Adress:" data={activeRecord?.ip} />
+                                <DetailsComponent title="Server status:" data={statusIndicator(activeRecord?.status, "small")} />
+                            </div>
                     </div>
                 </div>
             </Modal>

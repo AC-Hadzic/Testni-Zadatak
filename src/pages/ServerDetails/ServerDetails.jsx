@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { NoMatch } from "../NoMatch/NoMatch";
 import "../../assets/CSS/server-details.scss";
 import { useFetch } from "../../hooks/useFetch";
-import { statusIndicator } from "../../utils/Utils";
+import { dateParser, statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
 import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 
@@ -23,7 +23,7 @@ function ServerDetails({ title, text }) {
                         <div>
                             <DetailsComponent title="Environment type:" data={DATA[server]?.environment} />
                             <DetailsComponent title="Server name:" data={DATA[server]?.environments[id]?.name} />
-                            <DetailsComponent title="Server created at:" data={DATA[server]?.environments[id]?.date_created} />
+                            <DetailsComponent title="Server created at:" data={dateParser(DATA[server]?.environments[id]?.date_created)} />
                             <DetailsComponent title="Server managed by:" data={DATA[server]?.environments[id]?.admin} />
                             <DetailsComponent title="Server description:" data={DATA[server]?.environments[id]?.description} />
                         </div>

@@ -5,6 +5,7 @@ import { DataForContext } from '../../pages/HomePage/HomePage';
 import { statusIndicator, tableDataParser } from '../../utils/Utils';
 import { ModalComponent } from '../Modal/ModalComponent';
 import { TableRender } from './TableRender';
+import { useScreenWidth } from '../../hooks/useScreenWidth';
 
 function TableComponent() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,18 +23,25 @@ function TableComponent() {
             sorter: { compare: (a, b) => a.id - b.id },
             render: (text, record) =>
                 <Link to={"/" + record.serv_env + "/" + record.id}>
-                    <span className='id-render-status'>{text}</span>
+                    <div className='id-container'>
+                        <span className='id-render-status'>{text}</span>
+                    </div>
                 </Link>,
             align: "center"
         },
         {
             title: 'Application ID',
             dataIndex: 'application_id',
-            hidden: window.innerWidth >= 1080 ? false : true
+            hidden: useScreenWidth(1080)
         },
         {
             title: 'Server Name',
-            dataIndex: 'name'
+            dataIndex: 'name',
+        },
+        {
+            title: 'Date Created',
+            dataIndex: 'date_created',
+            hidden: useScreenWidth(720)
         },
         {
             title: 'Status',

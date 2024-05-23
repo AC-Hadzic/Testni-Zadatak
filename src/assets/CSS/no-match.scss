@@ -13,7 +13,7 @@
     }
 }
 
-@media (width <= 480px) {
+@media (max-width: 480px) {
     .no-match-container {
         text-align: center;
         padding-inline: 10px;

@@ -1,3 +1,4 @@
+// Indikator aktivnosti za servere
 export const statusIndicator = (data, type) => {
     return (
         <>
@@ -8,6 +9,7 @@ export const statusIndicator = (data, type) => {
     )
 };
 
+// Parsira data iz fetcha za potrebe tablice
 export const tableDataParser = (data, envID) => {
     const newData = envID && data &&
         data.map(item => ({
@@ -15,7 +17,7 @@ export const tableDataParser = (data, envID) => {
             application_id: item.application_id,
             name: item.name,
             description: item.description,
-            date_created: item.date_created,
+            date_created: dateParser(item.date_created),
             status: item.status,
             admin: item.admin,
             ip: item.ip,
@@ -26,6 +28,7 @@ export const tableDataParser = (data, envID) => {
     return newData
 };
 
+// Parsira data iz fetcha za potrebe dropdowna
 export const dropdownDataParser = (data) => {
     const newData = data ?
         data.map(item => ({
@@ -38,4 +41,14 @@ export const dropdownDataParser = (data) => {
         }]
 
     return newData
+};
+
+// Parsira datume iz fetcha za jednostavniji prikaz formata
+export const dateParser = (data) => {
+    const date = new Date(data);
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const year = date.getUTCFullYear();
+
+    return `${day}/${month}/${year}`;
 };

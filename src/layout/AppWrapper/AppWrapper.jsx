@@ -6,14 +6,16 @@ import { FooterComponent } from "../Footer/FooterComponent";
 function AppWrapper() {
     return (
         <>
-            <div className='page-wrap'>
-                <HeaderComponent />
-                <div className='content-container'>
-                    <div className="content-wrap">
-                        <Outlet />
+            <div id="page-wrap">
+                <div className='page-wrap'>
+                    <HeaderComponent />
+                    <div className='content-container'>
+                        <div className="content-wrap">
+                            <Outlet />
+                        </div>
                     </div>
+                    <FooterComponent />
                 </div>
-                <FooterComponent />
             </div>
         </>
       )
