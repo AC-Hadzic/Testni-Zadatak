@@ -4,7 +4,6 @@ import "../../assets/CSS/server-details.scss";
 import { useFetch } from "../../hooks/useFetch";
 import { dateParser, statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
-import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 
 function ServerDetails({ title, text }) {
     const URL = import.meta.env.VITE_API_URL;
@@ -35,8 +34,6 @@ function ServerDetails({ title, text }) {
                             <DetailsComponent title="Server status:" data={statusIndicator(DATA[server]?.environments[id]?.status, "small")} />
                         </div>
                     </div>
-
-                    <ButtonComponent to="/" text="Go to home page" type="primary" size="large"/>
                 </div>
                 ) : (
                     <NoMatch />

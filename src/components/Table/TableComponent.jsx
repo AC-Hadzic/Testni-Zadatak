@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../../assets/CSS/table.scss";
 import { DataForContext } from '../../pages/HomePage/HomePage';
@@ -13,7 +13,7 @@ function TableComponent() {
     const { data, envID } = useContext(DataForContext);
 
     // Funkcija će data provesti kroz .map i vratiti iskoristivi array za Table
-    const DATA = tableDataParser(data[envID]?.environments, envID);
+    const parsedData = useMemo(() => tableDataParser(data[envID]?.environments, envID), [data, envID]);
 
     // Kolumne tablice
     const columns = [
@@ -61,7 +61,7 @@ function TableComponent() {
         <>
             <TableRender
                 columns={columns}
-                dataSource={DATA}
+                dataSource={parsedData}
                 // rowKey={(record) => record.id}
                 onRow={(record) => {
                     return {

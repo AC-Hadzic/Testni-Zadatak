@@ -1,0 +1,39 @@
+.nav-button-container {
+    .nav-button {
+        padding: 10px 20px;
+        margin-inline: 20px;
+        border-radius: 25px;
+    }
+
+    .nav-button:hover {
+        background-color: #1d70c4;
+        cursor: pointer;
+        user-select: none;
+        transition: 0.1s linear all;
+    }
+
+    .nav-button:active {
+        background-color: #368adf;
+    }
+
+    .nav-button:not(:hover) {
+        transition: 0.1s linear all;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+@media (max-width: 720px) {
+    .nav-button-container {
+        span {
+            display: none;
+        }  
+        
+        .nav-button {
+            padding: 8px 12px;
+            margin-inline: 0;
+        }               
+    }
+}

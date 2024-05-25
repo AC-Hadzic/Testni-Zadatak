@@ -9,7 +9,7 @@ function App() {
         <Routes>
             <Route path="/" element={<AppWrapper />}>
                 <Route index element={<HomePage />} />
-                <Route path="/:server/:id" element={
+                <Route path=":server/:id" element={
                     <ServerDetails
                         title="Server details"
                         text="Below you can find a detailed list of informations regarding selected server."

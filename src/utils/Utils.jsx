@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 // Indikator aktivnosti za servere
 export const statusIndicator = (data, type) => {
     return (
@@ -51,4 +53,15 @@ export const dateParser = (data) => {
     const year = date.getUTCFullYear();
 
     return `${day}/${month}/${year}`;
+};
+
+// Vraća korisniku nekakav error info, npr. nefunkcionalni button
+export const showPageNotFoundError = (errorMessage) => {
+    return (
+        toast.error(errorMessage, {
+            duration: 1800,
+            style: { borderRadius: "25px" },
+            position: (window.innerWidth) <= 720 && "bottom-center"
+        })
+    )
 };

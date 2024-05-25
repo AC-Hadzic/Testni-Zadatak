@@ -23,27 +23,6 @@
         text-align: center;
 
         font-size: 1.1rem;
-
-        div {
-            padding: 10px 20px;
-            margin-inline: 20px;
-            border-radius: 25px;
-        }
-
-        div:hover {
-            background-color: #1d70c4;
-            cursor: pointer;
-            user-select: none;
-            transition: 0.1s linear all;
-        }
-
-        div:active {
-            background-color: #368adf;
-        }
-
-        div:not(:hover) {
-            transition: 0.1s linear all;
-        }
     }  
 }
 
@@ -51,16 +30,7 @@
     .header {
         .nav {
             justify-content: space-evenly;
-            font-size: 1.5rem;
-
-            span {
-                display: none;
-            }  
-            
-            div {
-                padding: 8px 12px;
-                margin-inline: 0;
-            }               
+            font-size: 1.5rem;            
         }
     }
 }
