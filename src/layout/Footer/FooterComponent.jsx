@@ -3,7 +3,7 @@ import "../../assets/CSS/footer.scss";
 function FooterComponent() {
     return (
         <div className="footer">
-            Footer Location - place for... footer stuff?
+            <span>2024 © Testing Company. No rights reserved.</span>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import "../../assets/CSS/global.css";
+import "../../assets/CSS/global.scss";
 import "../../assets/CSS/no-match.scss";
 import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 

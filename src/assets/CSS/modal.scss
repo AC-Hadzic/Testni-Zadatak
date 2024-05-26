@@ -2,10 +2,6 @@
     display: flex;
     flex-direction: column;
 
-    span {
-        font-weight: bold;
-    }
-
     .data-container {
         display: flex;
         justify-content: space-between;
@@ -15,20 +11,11 @@
         }
 
         div > div:first-of-type {
-            margin-top: 20px;
-        }
-    }
-
-    .separator {
-        background-color: rgb(211, 211, 211);
-        filter: blur(0.6px);
-
-        &.vertical {
-            width: 1px;
+            margin-top: 0px;
         }
 
-        &.horizontal {
-            height: 1px;
+        h3 {
+            margin-bottom: 5px;
         }
     }
 }
@@ -36,5 +23,9 @@
 @media (max-width: 480px) {
     .separator.vertical {
         display: none;
+    }
+
+    .margin-add {
+        margin-left: 10px;
     }
 }

@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-import "./../../assets/CSS/global.css";
+import "./../../assets/CSS/global.scss";
 
 function ButtonComponent({ to, text, ...rest }) {
 // type i size imaju default vrijednosti, ako se oce pogaziti posalje se kroz props nove vrijednosti i pokupi ih {...rest}

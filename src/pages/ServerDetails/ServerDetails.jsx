@@ -7,37 +7,71 @@ import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent
 
 function ServerDetails({ title, text }) {
     const URL = import.meta.env.VITE_API_URL;
-    const DATA = useFetch(URL); // Fetch podataka sa URL
-    let { server } = useParams();
-    let { id } = useParams();
+    const data = useFetch(URL); // Fetch podataka sa URL
+    let { server, id } = useParams();
+    const dataExistCheck = data[server]?.environment && data[server]?.environments[id]?.name;
+    const dataProps = data[server]?.environments[id];
+
+    const dataTableLeft = [
+        { icon: "bi bi-server", title: "Environment type:", data: data[server]?.environment },
+        { icon: "bi bi-pencil-fill", title: "Server name:", data: dataProps?.name },
+        { icon: "bi bi-calendar-check-fill", title: "Server created at:", data: dateParser(dataProps?.date_created) },
+        { icon: "bi bi-person-fill", title: "Server managed by:", data: dataProps?.admin }
+    ];
+
+    const dataTableRight = [
+        { icon: "bi bi-database-fill-lock", title: "Server ID:", data: dataProps?.id },
+        { icon: "bi bi-database-fill-lock", title: "Server App ID:", data: dataProps?.application_id },
+        { icon: "bi bi-ethernet", title: "Server IP Adress:", data: dataProps?.ip },
+        { icon: "bi bi-gear-fill", title: "Server status:", data: statusIndicator(dataProps?.status, "small") }
+    ];
+
+    const dataTableBottom = [
+        { icon: "bi bi-file-text-fill", title: "Server Description:", data: <textarea readOnly defaultValue={data[server]?.environments[id]?.description} /> }
+    ]
+
+    const generateDetails = (data) => {
+        return (
+            data.map((details, id) => (
+                <DetailsComponent
+                    key={id}
+                    title={<> <i className={details.icon} /> {details.title} </>}
+                    data={details.data}
+                />
+            ))
+        )
+    }
 
     return (
         <>
-            {DATA[server]?.environment && DATA[server]?.environments[id]?.name ? (
+            {dataExistCheck ? ( 
                 <div className="server-details">
                     <h1> {title} </h1>
                     <p> {text} </p>
 
+                    <div className="separator horizontal" />
+
                     <div className="details-container">
-                        <div>
-                            <DetailsComponent title="Environment type:" data={DATA[server]?.environment} />
-                            <DetailsComponent title="Server name:" data={DATA[server]?.environments[id]?.name} />
-                            <DetailsComponent title="Server created at:" data={dateParser(DATA[server]?.environments[id]?.date_created)} />
-                            <DetailsComponent title="Server managed by:" data={DATA[server]?.environments[id]?.admin} />
-                            <DetailsComponent title="Server description:" data={DATA[server]?.environments[id]?.description} />
+                        <div className="details-section">
+                            {generateDetails(dataTableLeft)}
                         </div>
 
-                        <div>
-                            <DetailsComponent title="Server ID:" data={DATA[server]?.environments[id]?.id} />
-                            <DetailsComponent title="Server App ID:" data={DATA[server]?.environments[id]?.application_id} />
-                            <DetailsComponent title="Server IP Adress:" data={DATA[server]?.environments[id]?.ip} />
-                            <DetailsComponent title="Server status:" data={statusIndicator(DATA[server]?.environments[id]?.status, "small")} />
+                        <div className="separator vertical" />
+
+                        <div className="details-section">
+                            {generateDetails(dataTableRight)}
                         </div>
                     </div>
+
+                    <div className="separator horizontal" />
+
+                    <div className="description-container">
+                        {generateDetails(dataTableBottom)}
+                    </div>
                 </div>
-                ) : (
-                    <NoMatch />
-                )
+            ) : (
+                <NoMatch />
+            )
             }
         </>
     );

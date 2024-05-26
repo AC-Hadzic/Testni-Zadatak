@@ -11,7 +11,10 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path=":server/:id" element={
                     <ServerDetails
-                        title="Server details"
+                        title={<>
+                            <i className="bi bi-server" />
+                            Server details
+                        </>}
                         text="Below you can find a detailed list of informations regarding selected server."
                     />
                 } />

@@ -40,7 +40,7 @@ body {
 }
 
 .active-status-short {
-    color: #28a745;
+    color: rgb(40, 173, 84);
 }
 
 .inactive-status-short {
@@ -51,6 +51,7 @@ body {
     background-color: unset;
     border-radius: 0px;
     padding: 0px;
+    font-weight: bold;
 }
 
 .button {
@@ -62,4 +63,17 @@ body {
 
 .blur-background {
     filter: blur(2px);
+}
+
+.separator {
+    background-color: rgb(211, 211, 211);
+    filter: blur(0.6px);
+
+    &.vertical {
+        width: 1px;
+    }
+
+    &.horizontal {
+        height: 1px;
+    }
 }
