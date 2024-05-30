@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { NoMatch } from "../NoMatch/NoMatch";
 import "../../assets/CSS/server-details.scss";
 import { useFetch } from "../../hooks/useFetch";
-import { dateParser, statusIndicator } from "../../utils/Utils";
+import { dateParser, generateDetails, statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
 
 function ServerDetails({ title, text }) {
@@ -29,18 +29,6 @@ function ServerDetails({ title, text }) {
     const dataTableBottom = [
         { icon: "bi bi-file-text-fill", title: "Server Description:", data: <textarea readOnly defaultValue={data[server]?.environments[id]?.description} /> }
     ]
-
-    const generateDetails = (data) => {
-        return (
-            data.map((details, id) => (
-                <DetailsComponent
-                    key={id}
-                    title={<> <i className={details.icon} /> {details.title} </>}
-                    data={details.data}
-                />
-            ))
-        )
-    }
 
     return (
         <>

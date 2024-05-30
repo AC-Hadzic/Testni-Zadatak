@@ -17,7 +17,9 @@ function AppWrapper() {
                                 <Outlet />
                             </div>
                         </div>
-                        <FooterComponent />
+                        <FooterComponent 
+                            text="2024 © Testing Company. No rights reserved."
+                        />
                     </div>
                 </div>                
             </ThemeProvider>

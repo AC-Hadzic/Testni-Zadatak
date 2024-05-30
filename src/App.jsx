@@ -18,9 +18,8 @@ function App() {
                         text="Below you can find a detailed list of informations regarding selected server."
                     />
                 } />
-                <Route path="*" element={<NoMatch />} />
+                <Route path="/*" element={<NoMatch/>} />
             </Route>
-            <Route path="*" element={<NoMatch />} />
         </Routes>
     );
 }

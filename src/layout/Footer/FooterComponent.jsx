@@ -1,10 +1,10 @@
 import "../../assets/CSS/footer.scss";
 
-function FooterComponent() {
+function FooterComponent({ text }) {
     return (
-        <div className="footer">
-            <span>2024 © Testing Company. No rights reserved.</span>
-        </div>
+        <footer className="footer">
+            <span>{text}</span>
+        </footer>
     )
 }
 

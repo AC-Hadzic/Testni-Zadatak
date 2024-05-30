@@ -20,7 +20,7 @@ function HeaderComponent() {
     };
 
     return (
-        <div className='header'>
+        <header className='header'>
             <Toaster />
 
             <div className='banner'>
@@ -33,7 +33,7 @@ function HeaderComponent() {
                 <ThemeToggleComponent />
             </div>
 
-            <div className='nav'>
+            <nav className='nav'>
                 <NavButtonComponent
                     text="Homepage"
                     icon="bi bi-house-door-fill"
@@ -57,8 +57,8 @@ function HeaderComponent() {
                     icon="bi bi-box-arrow-in-right"
                     onClick={() => showPageNotFoundError("This page currently does not exist.")}
                 />
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 }
 

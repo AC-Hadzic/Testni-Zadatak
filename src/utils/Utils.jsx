@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { DetailsComponent } from "../layout/LayoutComponents/DetailsComponent";
 
 // Indikator aktivnosti za servere
 export const statusIndicator = (data, type) => {
@@ -70,5 +71,34 @@ export const showPageNotFoundError = (errorMessage) => {
 
             position: (window.innerWidth) <= 720 && "bottom-center",
         })
+    )
+};
+
+// Render linka za server ID u tablici
+export const renderIDLink = (text, record) => {
+    return (
+        <Link to={"/" + record.serv_env + "/" + record.id}>
+            <div className='id-container'>
+                <span className='id-render-status'>{text}</span>
+            </div>
+        </Link>
+    )
+};
+
+// Render detalja servera za Table i Modal
+export const generateDetails = (data) => {
+    return (
+        data.map((details, id) => (
+            <DetailsComponent
+                key={id}
+                title={
+                    // Ovo radi kontra zbog nekog razloga...
+                    data.icon ?
+                        details.title :
+                        <> <i className={details.icon} /> {details.title} </>
+                }
+                data={details.data}
+            />
+        ))
     )
 };

@@ -1,7 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
 import "../../assets/CSS/table.scss";
-import { statusIndicator, tableDataParser } from '../../utils/Utils';
+import { renderIDLink, statusIndicator, tableDataParser } from '../../utils/Utils';
 import { ModalComponent } from '../Modal/ModalComponent';
 import { TableRender } from './TableRender';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
@@ -21,12 +20,7 @@ function TableComponent() {
             title: 'ID',
             dataIndex: 'id',
             sorter: { compare: (a, b) => a.id - b.id },
-            render: (text, record) =>
-                <Link to={"/" + record.serv_env + "/" + record.id}>
-                    <div className='id-container'>
-                        <span className='id-render-status'>{text}</span>
-                    </div>
-                </Link>,
+            render: renderIDLink,
             align: "center"
         },
         {
