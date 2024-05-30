@@ -64,7 +64,7 @@ export const showPageNotFoundError = (errorMessage) => {
             duration: 1800,
             style: {
                 borderRadius: "25px",
-                background: page.classList == "dark-mode" && "rgb(70, 75, 77)",
+                background: page.classList == "dark-mode" && "#333",
                 color: page.classList == "dark-mode" && "white"
             },
 
