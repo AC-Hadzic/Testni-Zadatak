@@ -1,11 +1,13 @@
 import { Modal, ConfigProvider } from "antd";
 import "../../assets/CSS/modal.scss";
-import { dateParser, statusIndicator } from "../../utils/Utils";
+import { statusIndicator } from "../../utils/Utils";
 import { DetailsComponent } from "../../layout/LayoutComponents/DetailsComponent";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text }) {
     const BlurWrapper = document.getElementById("page-wrap");
+    const { theme } = useContext(ThemeContext);
 
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -25,13 +27,20 @@ function ModalComponent({ activeRecord, isModalOpen, setIsModalOpen, title, text
             theme={{
                 components: {
                     Modal: {
+                    // static
                         borderRadiusLG: 25,
                         borderRadiusSM: 25,
-                        colorBgTextActive: "rgb(255, 170, 159)",
-                        colorBgTextHover: "rgb(245, 78, 56)",
-                        colorIcon: "rgb(245, 78, 56)",
-                        colorIconHover: "white",
                         titleFontSize: 20,
+
+                    // promjena ovisno o temi
+                        headerBg: theme.modal.contentBg,
+                        contentBg: theme.modal.contentBg,
+                        titleColor: theme.modal.titleColor,
+                        colorText: theme.modal.titleColor,
+                        colorBgTextActive: theme.modal.colorBgTextActive,
+                        colorBgTextHover: theme.modal.colorIconAndHover,
+                        colorIcon: theme.modal.colorIconAndHover,
+                        colorIconHover: theme.modal.colorIconHover
                     }
                 }
             }}

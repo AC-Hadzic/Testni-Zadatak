@@ -1,12 +1,17 @@
+// src/components/HeaderComponent/HeaderComponent.jsx
+import React from "react";
 import { Toaster } from "react-hot-toast";
 import "../../assets/CSS/header.scss";
 import { NavButtonComponent } from "../../components/ButtonComponent/NavButtonComponent";
 import { showPageNotFoundError } from "../../utils/Utils";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo/logo.png";
+import { ThemeToggleComponent } from "../../components/ButtonComponent/ThemeToggleComponent";
+import { LogoComponent } from "../../components/ButtonComponent/LogoComponent";
 
 function HeaderComponent() {
     const urlParams = new URLSearchParams(window.location.search);
-    const env = urlParams.get("env")
+    const env = urlParams.get("env");
     const navigate = useNavigate();
 
     const handleNavigation = (event) => {
@@ -19,7 +24,13 @@ function HeaderComponent() {
             <Toaster />
 
             <div className='banner'>
-                Banner Location - image, logo etc.
+                <LogoComponent 
+                    logo={logo}
+                    alt="Logo Image"
+                    onClick={(e) => handleNavigation(e)}
+                />
+
+                <ThemeToggleComponent />
             </div>
 
             <div className='nav'>
@@ -48,7 +59,7 @@ function HeaderComponent() {
                 />
             </div>
         </div>
-    )
+    );
 }
 
 export { HeaderComponent };

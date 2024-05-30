@@ -1,16 +1,16 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../../assets/CSS/table.scss";
-import { DataForContext } from '../../pages/HomePage/HomePage';
 import { statusIndicator, tableDataParser } from '../../utils/Utils';
 import { ModalComponent } from '../Modal/ModalComponent';
 import { TableRender } from './TableRender';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
+import { DataContext } from '../../context/DataContext';
 
 function TableComponent() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeRecord, setActiveRecord] = useState(null);
-    const { data, envID } = useContext(DataForContext);
+    const { data, envID } = useContext(DataContext);
 
     // Funkcija će data provesti kroz .map i vratiti iskoristivi array za Table
     const parsedData = useMemo(() => tableDataParser(data[envID]?.environments, envID), [data, envID]);

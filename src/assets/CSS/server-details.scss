@@ -47,6 +47,13 @@
         border-bottom-right-radius: 25px;
     }
 
+    .details-component {
+        .active-status-short, .inactive-status-short  {
+            font-size: 1.2rem;
+            letter-spacing: 0.1rem;
+        }
+    }
+
     textarea {
         resize: vertical;
         width: 100%;

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { DataForContext } from '../../pages/HomePage/HomePage';
 import "./../../assets/CSS/dropdown.scss";
 import { DropdownRender } from './DropdownRender';
 import { dropdownDataParser } from '../../utils/Utils';
+import { DataContext } from '../../context/DataContext';
 
 function DropdownComponent() {
-    const { data, setEnvID, searchParams, setSearchParams } = useContext(DataForContext);
+    const { data, setEnvID, searchParams, setSearchParams } = useContext(DataContext);
     const envParams = searchParams.get("env");
     const [selectedEnv, setSelectedEnv] = useState(envParams);
     const items = useMemo(() => dropdownDataParser(data), [data]);

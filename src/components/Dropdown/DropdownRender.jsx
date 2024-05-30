@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { ConfigProvider, Dropdown, Space, Typography } from 'antd';
 import "./../../assets/CSS/dropdown.scss";
+import { ThemeContext } from '../../context/ThemeContext';
 
 function DropdownRender({ menu, selectedEnv }) {
     const { items, selectable, onClick, defaultSelectedKeys } = menu;
+    const { theme } = useContext(ThemeContext);
 
     return (
         <div className='dropdown'>
@@ -13,11 +15,19 @@ function DropdownRender({ menu, selectedEnv }) {
                     theme={{
                         components: {
                             Dropdown: {
-                                controlItemBgHover: "rgb(196, 227, 238)",
-                                controlItemBgActive: "rgb(196, 227, 238)",
-                                borderRadiusLG: 15,
-                                borderRadiusSM: 15,
-                                paddingBlock: 10
+                            // static
+                                borderRadiusLG: 25,
+                                borderRadiusSM: 25,
+                                paddingBlock: 12,
+                                boxShadowSecondary: "0px 3px 8px 0px rgba(0, 0, 0, 0.8)",
+
+                            // Mijenja se s temom
+                                colorText: theme.dropdown.colorText,
+                                colorPrimary: theme.dropdown.colorText,
+                                colorBgElevated: theme.dropdown.colorBgElevated,
+                                controlItemBgHover: theme.dropdown.controlItemBgHoverAndActive,
+                                controlItemBgActive: theme.dropdown.controlItemBgHoverAndActive,
+                                controlItemBgActiveHover: theme.dropdown.controlItemBgActiveHover
                             }
                         }
                     }}

@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 // Indikator aktivnosti za servere
 export const statusIndicator = (data, type) => {
@@ -57,11 +58,17 @@ export const dateParser = (data) => {
 
 // Vraća korisniku nekakav error info, npr. nefunkcionalni button
 export const showPageNotFoundError = (errorMessage) => {
+    const page = document.getElementById("page-wrap");
     return (
         toast.error(errorMessage, {
             duration: 1800,
-            style: { borderRadius: "25px" },
-            position: (window.innerWidth) <= 720 && "bottom-center"
+            style: {
+                borderRadius: "25px",
+                background: page.classList == "dark-mode" && "rgb(70, 75, 77)",
+                color: page.classList == "dark-mode" && "white"
+            },
+
+            position: (window.innerWidth) <= 720 && "bottom-center",
         })
     )
 };

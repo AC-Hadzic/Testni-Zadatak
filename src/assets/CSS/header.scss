@@ -9,8 +9,66 @@
         background: linear-gradient(90deg, #003366, #05478a);
 
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items: center;
+
+        .logo {
+            margin-left: 10px;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .logo img:hover {
+            filter: brightness(120%);
+            transition: 0.2s linear all;
+        }
+
+        .logo img:not(:hover) {
+            transition: 0.2s linear all;
+        }
+
+        .theme_button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                border: none;
+                font-size: 2rem;
+                background-color: white;
+            }
+
+            button:hover {
+                width: 58px;
+                height: 58px;
+                transition: 0.1s linear all;
+                color: orange;
+            }
+
+            button:not(:hover) {
+                transition: 0.1s linear all;
+            }
+
+            button:active {
+                width: 52px;
+                height: 52px;
+            }
+
+        }
     }
 
     .nav {
